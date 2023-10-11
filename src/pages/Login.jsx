@@ -9,6 +9,7 @@ import Container from '@mui/material/Container';
 import { useNavigate } from 'react-router-dom';
 import {useDispatch, useSelector} from "react-redux"
 import { createUser } from '../features/authSlice';
+//import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 
 
 export default function Login() {
@@ -72,7 +73,7 @@ export default function Login() {
             type="submit"
             fullWidth
             variant="contained"
-            color="secondary"
+            color="primary"
             sx={{ mt: 3, mb: 2 }}
           >
             Sign In

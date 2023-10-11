@@ -8,7 +8,9 @@ import { CardMedia } from '@mui/material';
 import loadingGif from '../assets/loading.gif';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { getirData, clear } from '../features/newsSlice';
+import { getirData, clearAnItem,removeAllNews } from '../features/newsSlice';
+import DeleteIcon from '@mui/icons-material/Delete';
+import RestartAltIcon from '@mui/icons-material/RestartAlt';
 
 
 const News = () => {
@@ -21,8 +23,6 @@ const News = () => {
   },[dispatch])
 
 
-
- 
   return (
     <>
    
@@ -36,13 +36,14 @@ const News = () => {
           <img src={loadingGif} alt="gif" width="90%" height="800px" />
         </Box>
       ) : (
-        <Box
+        <><Box
           xs={{ d: "flex" }}
           display="flex"
           alignItems="center"
           justifyContent="space-evenly"
           flexWrap="wrap"
         >
+          
           {news.map((item, index) => (
             <Card sx={{ maxWidth: 345, m: 5, maxHeight: 600 }} key={index}>
               <CardMedia
@@ -59,17 +60,35 @@ const News = () => {
                   {item.content}
                 </Typography>
               </CardContent>
-              <CardActions>
-                <Button size="small" onClick={()=>dispatch(clear())} >
-                  Clear
+              <CardActions sx={{justifyContent:'space-between'}}>
+                <Button sx={{color: 'red'}} size="small" onClick={()=>dispatch(clearAnItem(item.publishedAt))} >
+                  Delete this item
                 </Button>
-                <Button size="small" href={item.url} target="_blank">
+                <Button sx={{color: 'green'}} size="small" href={item.url} target="_blank">
                   Detail
                 </Button>
               </CardActions>
             </Card>
           ))}
+          
+          
         </Box>
+        {
+          news.length !== 0 ? (
+          <Button variant="contained" color='error' component="button" size='large' sx = {{margin: '0 auto', marginBottom: 5, display: "flex"}} onClick = {() => dispatch(removeAllNews())} startIcon = {<DeleteIcon /> }>
+            Remove all news
+          </Button> 
+          )  
+          : 
+          (
+          <Button variant="contained" color='success' component="button" size='large' onClick = {() => dispatch(getirData())} sx = {{margin: '0 auto', marginTop: 40, display: "flex"}} startIcon = {<RestartAltIcon />}>
+            Get news again
+          </Button>
+          )
+        }
+        </>
+        
+        
       )}
     </>
   );

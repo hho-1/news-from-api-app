@@ -6,6 +6,7 @@ import Button from '@mui/material/Button';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { deleteUser } from '../features/authSlice';
+import { getirData } from '../features/newsSlice';
 
 
 
@@ -24,23 +25,31 @@ export default function Navbar() {
 
   return (
     <Box sx={{ flexGrow: 1 }}>
-      <AppBar position="static" color="secondary">
+      <AppBar position="static" color="primary">
         <Toolbar>
           <Typography
             variant="h6"
             component="div"
             sx={{ flexGrow: 1, cursor: "pointer" }}
+            onClick={()=>dispatch(getirData())}
           >
-            World News 
+            {
+              email === "apiUser" ? "BBC World News" : "Welcome to latest World-News App"
+            }
+             
           </Typography>
 
           {email === "apiUser" ? (
             <>
-              <Typography sx={{color: 'yellow', marginRight: '40%'}}>Welcome apiUser</Typography>
+              <Typography sx={{color: 'yellow', marginRight: '5vw'}}>Welcome apiUser</Typography>
               <Button color="inherit" onClick={handleLogout}>LogOut</Button>
             </>
           ) : (
-            <Button color="inherit">LogIn</Button>
+            <>
+              <Typography sx={{color: 'yellow', marginRight: '5vw'}}>Use 'apiUser' as email and a random password to log in</Typography>
+              <Button color="inherit">LogIn</Button>
+            </>
+            
           )}
         </Toolbar>
       </AppBar>

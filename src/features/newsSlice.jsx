@@ -21,9 +21,12 @@ export const newsSlice = createSlice({
     error: "",
   },
   reducers: {
-    clear: (state) => {
-      state.news = [];
+    clearAnItem: (state,action) => {
+      state.news = state.news.filter((item) => item.publishedAt !== action.payload)
     },
+    removeAllNews: (state) => {
+      state.news = []
+    }
   },
 
   extraReducers: (builder) => {
@@ -44,6 +47,6 @@ export const newsSlice = createSlice({
   },
 });
 
-export const { clear } = newsSlice.actions;
+export const { clearAnItem, removeAllNews } = newsSlice.actions;
 
 export default newsSlice.reducer;

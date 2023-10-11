@@ -16,8 +16,8 @@ const authSlice = createSlice({
     },
 
     deleteUser:(state) => {
-        state.email = ""
-        state.password = ""
+      state.email = ""
+      state.password = ""
     }
   }
 });

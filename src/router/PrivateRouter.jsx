@@ -5,8 +5,7 @@ import { Navigate, Outlet } from 'react-router-dom';
 
 const PrivateRouter = () => {
 
-
-  return useSelector((state) => state.authSlice.email) === "apiUser" ? (<Outlet/>):(<Navigate to="/login"/>)
+  return  useSelector((state) => state.authSlice.email) === "apiUser" ? (<Outlet/>):(<Navigate to="/login"/>)
   // <Login/>
 }
 
