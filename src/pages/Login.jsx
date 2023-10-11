@@ -16,7 +16,7 @@ export default function Login() {
 
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  
+
   const handleSubmit = (e) => {
     e.preventDefault();
     dispatch(createUser({ email, password }));
@@ -83,7 +83,7 @@ export default function Login() {
       <Typography variant="body2" color="text.secondary" align="center">
         {"Copyright © "}
         <Link color="inherit" href="https://github.com/hho-1">
-          hho
+          hHo
         </Link>{" "}
         {new Date().getFullYear()}
         {"."}

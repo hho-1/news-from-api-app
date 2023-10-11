@@ -15,7 +15,7 @@ export default function Navbar() {
   const navigate=useNavigate()
   const dispatch=useDispatch()
 
-  const handleLogout=()=>{
+  const handleLogout = () => {
 
     dispatch(deleteUser())
 
@@ -34,8 +34,11 @@ export default function Navbar() {
             World News 
           </Typography>
 
-          {email === "osman" ? (
-            <Button color="inherit" onClick={handleLogout}>LogOut</Button>
+          {email === "apiUser" ? (
+            <>
+              <Typography sx={{color: 'yellow', marginRight: '40%'}}>Welcome apiUser</Typography>
+              <Button color="inherit" onClick={handleLogout}>LogOut</Button>
+            </>
           ) : (
             <Button color="inherit">LogIn</Button>
           )}
