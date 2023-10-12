@@ -34,7 +34,7 @@ export default function Navbar() {
             onClick={()=>dispatch(getirData())}
           >
             {
-              email === "apiUser" ? "BBC World News" : "Welcome to latest World-News App"
+              email === "apiUser" ? "World News" : "Welcome to latest World-News App"
             }
              
           </Typography>

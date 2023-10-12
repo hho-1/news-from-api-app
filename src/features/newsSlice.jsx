@@ -6,10 +6,10 @@ export const getirData = createAsyncThunk(
 
   async () => {
     const data = await axios(
-      "https://newsapi.org/v2/top-headlines?sources=bbc-news&apiKey=8b80b2207e2e4ed78b21b1c7947602f7"
+      "https://newsdata.io/api/1/news?apikey=pub_31063e3964545bb8174667bdff0654e03a4cf&q=bbc%20world "
     );
-    //  console.log(data);
-    return data.data.articles;
+    //console.log(data);
+    return data.data.results;
   }
 );
 
@@ -22,7 +22,7 @@ export const newsSlice = createSlice({
   },
   reducers: {
     clearAnItem: (state,action) => {
-      state.news = state.news.filter((item) => item.publishedAt !== action.payload)
+      state.news = state.news.filter((item) => item.article_id !== action.payload)
     },
     removeAllNews: (state) => {
       state.news = []

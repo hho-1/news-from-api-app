@@ -45,26 +45,26 @@ const News = () => {
         >
           
           {news.map((item, index) => (
-            <Card sx={{ maxWidth: 345, m: 5, maxHeight: 600 }} key={index}>
+            <Card sx={{ maxWidth: 400, m: 5, height: 650, }} key={index}>
               <CardMedia
                 component="img"
                 height="250"
-                image={ item.urlToImage}
+                image={ item.image_url}
                 alt="img"
               />
-              <CardContent>
+              <CardContent sx={{height:300, overflow:'hidden'}}>
                 <Typography gutterBottom variant="h5" component="div">
                   {item.title}
                 </Typography>
                 <Typography variant="body2" color="text.secondary">
-                  {item.content}
+                  {item.description}
                 </Typography>
               </CardContent>
               <CardActions sx={{justifyContent:'space-between'}}>
-                <Button sx={{color: 'red'}} size="small" onClick={()=>dispatch(clearAnItem(item.publishedAt))} >
+                <Button sx={{color: 'red'}} size="small" onClick={()=>dispatch(clearAnItem(item.article_id))} >
                   Delete this item
                 </Button>
-                <Button sx={{color: 'green'}} size="small" href={item.url} target="_blank">
+                <Button sx={{color: 'green'}} size="small" href={item.link} target="_blank">
                   Detail
                 </Button>
               </CardActions>
