@@ -6,7 +6,7 @@ export const getirData = createAsyncThunk(
 
   async () => {
     const data = await axios(
-      "https://newsapi.org/v2/top-headlines?sources=bbc-news&apiKey=81a4163ea7eb4bccb489151972100adb"
+      "https://newsapi.org/v2/top-headlines?sources=bbc-news&apiKey=8b80b2207e2e4ed78b21b1c7947602f7"
     );
     //  console.log(data);
     return data.data.articles;
