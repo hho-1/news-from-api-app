@@ -9,7 +9,7 @@
 - `@emotion/styled`
 
 ### API
-- https://newsapi.org/
+- [https://newsapi.org/](https://newsdata.io)
 - URL:
   const url = `https://newsapi.org/v2/top-headlines?country=tr&apiKey=${API_KEY}`;
 #### Outcome:
