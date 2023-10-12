@@ -9,8 +9,7 @@
 - `@emotion/styled`
 
 ### API
-- [https://newsapi.org/](https://newsdata.io)
-- URL:
-  const url = `https://newsapi.org/v2/top-headlines?country=tr&apiKey=${API_KEY}`;
+- https://newsdata.io
+  
 #### Outcome:
 https://news-from-api-app.vercel.app/login
